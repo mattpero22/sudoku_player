@@ -1,0 +1,6 @@
+8/11/2020
+  - generated board and display function, began working with a hash table approach
+  - Used two for loops to iterate through all rows and columns (computes row by row)
+  - On empty cells, the row then column is checked to fill hash table of numbers that wont work, results printed in console
+  
+8/12/2020
