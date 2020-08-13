@@ -4,3 +4,7 @@
   - On empty cells, the row then column is checked to fill hash table of numbers that wont work, results printed in console
   
 8/12/2020
+  - removed hash table and instead edit a string directly which contains only possible values after checking each row, column, and 3x3 zone
+  - having issues with recursive logic for the way I am passing the possible values in on each call, as it can't backtrack to more than one previous
+  
+8/13/2020
