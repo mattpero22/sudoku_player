@@ -7,4 +7,19 @@
   - removed hash table and instead edit a string directly which contains only possible values after checking each row, column, and 3x3 zone
   - having issues with recursive logic for the way I am passing the possible values in on each call, as it can't backtrack to more than one previous
   
-8/13/2020
+8/13->18/2020
+  - after multiple iterations and reworking out the problem on paper, I was able to have the board solved correctly (also realized there was an error in the first board)
+  - Uses two primary functions that are called recursively: find_zero and solve_cell
+  - find zero iterated through each row and column. 
+           * When a zero was found:
+                  the location was appended on the list of coordinates for zero positions
+                  solve_cell was called and the current position was passed
+  - when solve_cell is called:
+                  * set the trial number equal to what is currently stored in the cell plus one (to try next digit, and if zero tries 1 first)
+                  * while trial num remains within 1-9, the row, col, and 3x3 zone is checked one at a time, and only checks the following if the previous check was valid
+                            **(checks column only if row was valid and checks zone only if both row and column were valid)
+                  * if the trial num is valid it is stored in the current position of the board and the find_zero function is called
+                  * if the trial num is not valid, it is incremented by 1, restarting the while loop unless it equals 10
+                  * if it reaches 10, we need to go back to the cell previously checked, which is done outside the while loop in solve_cell
+                            **the current position (last one appended) is popped off and the cell is set back to zero such that the find_zero function will detect the cell
+                            **call solve_cell() by passing the coords of the previous position
